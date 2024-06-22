@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.samuraitravel.entity.Review;
+import com.example.samuraitravel.form.ReviewRegisterForm;
 import com.example.samuraitravel.repository.ReviewRepository;
 
 @Controller
@@ -28,5 +29,13 @@ private final ReviewRepository reviewRepository;
         model.addAttribute("reviewPage", reviewPage );             
      
         return "review/index";
-    }  
+    } 
+    
+    @GetMapping("/register")
+    public String register(Model model) {
+    	
+        model.addAttribute("reviewRegisterForm", new ReviewRegisterForm());
+        
+        return "review/register";
+    }   
 }
